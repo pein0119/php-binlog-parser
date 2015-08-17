@@ -1,6 +1,6 @@
 <?php
 
-class BinlogEventType
+class EventType
 {
     const UNKNOWN_EVENT = 0x00;
     const START_EVENT_V3 = 0x01;
