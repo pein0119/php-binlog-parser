@@ -40,7 +40,7 @@ class Packet
         } 
     }
     
-    public function read($size)
+    public function readSize($size)
     {
         $size = intval($size);
         if (strlen($this->rawBinlogEvent) <= $size) {
@@ -55,18 +55,39 @@ class Packet
         return $chunk;
     }
 
-    public function readUint8()
+    public function readUint8($data)
     {
-        return unpack('C', $this->read(1));
+        $unpackArr = unpack('C', $data);
+
+        return $unpackArr[1];
     }
 
-    public function readUint16()
+    public function readUint16($data)
     {
-        
+        $unpackArr = unpack('S', $data);
+
+        return $unpackArr[1];
+    }
+    
+    public function readUint32($data)
+    {
+        $unpackArr = unpack('I', $data);
+
+        return $unpackArr[1];
     }
 
-    public function int2byte($i)
+    public function readUint64($data)
     {
-        return pack('C', $i);
+        $unpackArr = unpack('P', $data);
+    }
+    
+    public function readStr($data)
+    {
+        return trim($data);
+    }
+
+    public function int2byte($data)
+    {
+        return pack('C', $data);
     }
 }

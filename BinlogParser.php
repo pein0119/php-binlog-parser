@@ -2,12 +2,12 @@
 
 class BinlogParser
 {
-    public static function parse($rawBinlogEvent)
+    public static function parse($message)
     {
-        $eventType = $rawBinlogEvent->eventType;
+        $packet = new Packet($message);
+        $binlogEvent = new $allowedRowsEvents[$packet];
+        $event = $binlogEvent->getEvent();
 
-        if (isset($allowedRowsEvents[$eventType])) {
-            $event = new $allowedRowsEvents[$eventType];
-        }
+        return $event;
     }
 }
