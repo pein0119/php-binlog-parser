@@ -2,12 +2,6 @@
 
 class BinlogEvent
 {
-    protected $packet;
-    
-    protected $eventHeader;
-    // post_header + payload
-    protected $eventBody;
-
     // binlog event header definition
     // ref: https://dev.mysql.com/doc/internals/en/binlog-event-header.html
     protected $eventHeaderLength = 19;
@@ -63,9 +57,12 @@ class BinlogEvent
     
     public function getEvent()
     {
+        $header = $this->parseEventHeader();
+        $body = $this->parseEventBody();
+        
         $event = array(
-            'header' => $this->header,
-            'body' => $this->body,
+            'header' => $header,
+            'body' => $body,
         );
 
         return $event;

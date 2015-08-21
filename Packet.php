@@ -78,7 +78,13 @@ class Packet
 
     public function readUint64($data)
     {
-        $unpackArr = unpack('P', $data);
+        if (version_compare(PHP_VERSION, '5.6.3', '<')) {
+            $unpackArr = unpack('I2', $data);
+            return $unpackArr[1] + ($unpackArr[2] << 32);
+        } else {
+            $unpackArr = unpack('P', $data);
+            return $unpackArr[1];
+        }
     }
     
     public function readStr($data)
