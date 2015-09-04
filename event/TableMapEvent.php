@@ -25,9 +25,13 @@ class TableMapEvent extends BinlogEvent
         FieldType::LONGLONG   => 0,
     );
 
-    private function parseEventBody()
+    public function __construct($packet)
     {
         
     }
     
+    private function parseEventBody()
+    {
+        
+    }
 }

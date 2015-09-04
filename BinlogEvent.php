@@ -62,7 +62,7 @@ class BinlogEvent
         
         $event = array(
             'header' => $header,
-            'body' => $body,
+            'body' => body,
         );
 
         return $event;
