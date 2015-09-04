@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser;
+
 class BinlogParser
 {
     public static function parse($message)

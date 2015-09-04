@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser\Event;
+
 class BinlogEvent
 {
     // binlog event header definition

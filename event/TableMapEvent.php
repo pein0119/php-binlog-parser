@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser\Event;
+
 class TableMapEvent extends BinlogEvent
 {
     private $columnMetaLen = array(

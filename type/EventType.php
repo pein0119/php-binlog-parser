@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser\Type;
+
 class EventType
 {
     const UNKNOWN_EVENT            = 0x00;

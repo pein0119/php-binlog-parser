@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser\Type;
+
 class FieldType
 {
     const DECIMAL     = 0;

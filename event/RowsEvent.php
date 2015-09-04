@@ -1,5 +1,7 @@
 <?php
 
+namespace \Parser\Event;
+
 class RowsEvent extends BinlogEvent
 {
     protected $tableId;
